@@ -25,14 +25,14 @@ public:
 
 class Solution {
 public:
-    void handle(Node* &last, Node* &p, Node* &nextStart) {
+    void handle(Node* &last, Node* &cur, Node* &nextStart) {
         if (last != nullptr) {
-            last->next = p;
+            last->next = cur;
         } 
         if (nextStart == nullptr) {
-            nextStart = p;
+            nextStart = cur;
         }
-        last = p;
+        last = cur;
     }
 
     Node* connect(Node* root) {
@@ -40,7 +40,7 @@ public:
             return nullptr;
         }
         Node* start = root;
-        while(start != nullptr){
+        while(start != nullptr){//处理一层
             Node* last_node = nullptr;
             Node* next_start = nullptr;
             for(Node* p = start; p != nullptr; p = p->next){
