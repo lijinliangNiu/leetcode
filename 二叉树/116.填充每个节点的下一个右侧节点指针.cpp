@@ -32,8 +32,8 @@ public:
         Node* cur = root;
         Node* left_most = root;//不断指向下一层
         while(cur->left != nullptr){
-            cur->left->next = cur->right;
-            if(cur->next != nullptr){
+            cur->left->next = cur->right;//连子节点
+            if(cur->next != nullptr){//右边有节点
                 cur->right->next = cur->next->left;
                 cur = cur->next;
             }
