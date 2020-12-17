@@ -8,13 +8,9 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int n = prices.size();
-        int dp0 = 0, dp1 = -prices[0];//前一天没有/有股票
-        for (int i = 1; i < n; ++i) {
-            int newDp0 = max(dp0, dp1 + prices[i]);
-            int newDp1 = max(dp1, dp0 - prices[i]);
-            dp0 = newDp0;
-            dp1 = newDp1;
+        int dp0 = 0, dp1 = -prices[0];//这一天交易后没有/有股票
+        for (int i = 1; i < prices.size(); ++i) {
+            tie(dp0, dp1) = pair(max(dp0, dp1 + prices[i]), max(dp1, dp0 - prices[i]));
         }
         return dp0;
     }
