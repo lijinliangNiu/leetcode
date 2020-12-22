@@ -16,13 +16,13 @@ public:
             last_index[s[i]] = i;
         }
 
-        //已经到了正确位置的字符
+        //这个字符是不是有了
         set<char> added_char;
         string ans = "";
         for(int i = 0; i < s.size(); i++){
-            //到了正确位置的字符，其后的字符都不小于它，
-            //再来该字符肯定踢不掉它
+            //没有就往里放
             if(added_char.find(s[i]) == added_char.end()){
+                //小的踢掉大的
                 while(!ans.empty() && ans.back() > s[i] && last_index[ans.back()] > i){
                     added_char.erase(ans.back());
                     ans.pop_back();
