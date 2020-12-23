@@ -8,13 +8,13 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> map;
+        unordered_map<int, int> val2index;
         for(int i = 0; i < nums.size(); i++){
-            auto complement = map.find(target - nums[i]);
-            if(complement != map.end()){
+            auto complement = val2index.find(target - nums[i]);
+            if(complement != val2index.end()){
                 return {complement->second, i};
             }
-            map.insert(pair<int, int> (nums[i], i));
+            val2index[nums[i]] = i;
         }
         return {};
     }
