@@ -10,7 +10,7 @@ private:
     unordered_map<string, string> parent;
     unordered_map<string, double> weight;
 
-    // 查找并更新权重
+    // 路径压缩后更新权值
     string find(const string& x) {
         if(parent[x] != x){
             // x对parent的权重依赖于中间节点的权重
