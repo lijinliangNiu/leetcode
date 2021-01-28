@@ -11,9 +11,7 @@ private:
     vector<int> rank;
 
 public:
-    UnionSet(int n){
-        rank = vector<int>(n, 1);
-        parent = vector<int>(n);
+    UnionSet(int n): parent(n), rank(n, 1){
         iota(parent.begin(), parent.end(), 0);
     }
     int find(int x){
