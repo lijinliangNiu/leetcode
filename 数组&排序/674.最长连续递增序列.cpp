@@ -14,15 +14,15 @@ public:
         int ans = 0;
         int len = 1;
         for(int i = 1; i < nums.size(); i++){
-            if(nums[i] > nums[i-1]){
+            if(nums[i] > nums[i - 1]){
                 len++;
             }
             else {
-                ans = max(ans,len);
+                ans = max(ans, len);
                 len = 1;
             }
         }
-        ans = max(ans,len);
+        ans = max(ans, len);
         return ans;
     }
 };
