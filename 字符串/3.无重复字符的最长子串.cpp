@@ -17,7 +17,7 @@ public:
         int l = 0, ans = 0;
         unordered_map<char, int> last_pos;
         for(int r = 0; r < s.size(); r++){
-            if(last_pos.find(s[r]) != last_pos.end()){
+            if(last_pos.count(s[r])){
                 l = max(l, last_pos[s[r]]);
             }
             last_pos[s[r]] = r + 1;
